@@ -1,0 +1,44 @@
+Procedure (Short Steps)
+Step 1: Configure Git
+git config --global user.name "Your Name"
+git config --global user.email "youremail@example.com"
+git config --list
+
+Step 2: Create Local Repository
+mkdir git-operations-demo
+cd git-operations-demo
+git init
+
+Step 3: Create File & Commit
+echo "Hello Git World!" > hello.txt
+git add hello.txt
+git commit -m "Initial commit: Added hello.txt"
+
+Step 4: Create Remote Repository & Connect
+
+Create repo on GitHub → copy HTTPS URL
+Then:
+
+git remote add origin https://github.com/<username>/git-operations-demo.git
+git push -u origin master
+
+Step 5: Fetch Changes
+
+(After modifying file on GitHub)
+
+git fetch origin
+git log origin/master
+
+Step 6: Pull Changes
+git pull origin master
+cat hello.txt
+
+Step 7: Branching & Merging
+git checkout -b feature-update
+echo "This line is from feature branch." >> hello.txt
+git add hello.txt
+git commit -m "Updated hello.txt in feature branch"
+
+git checkout master
+git merge feature-update
+git push origin master
